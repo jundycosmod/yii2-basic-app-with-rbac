@@ -1,0 +1,84 @@
+{
+    "name": "yiisoft/yii2-app-basic",
+    "description": "Yii 2 Basic Project Template",
+    "keywords": ["yii2", "framework", "basic", "project template"],
+    "homepage": "http://www.yiiframework.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "minimum-stability": "stable",
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ximplexsoft/yii2-audittrail"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.5",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "dektrium/yii2-user": "0.9.*@dev",
+        "yiister/yii2-gentelella": "~1.0",
+        "conquer/select2": "*",
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-helpers": "*",
+        "kartik-v/yii2-checkbox-x": "*",
+        "thiagotalma/yii2-fullcalendar": "*",
+        "kartik-v/yii2-money": "*",
+        "scotthuangzl/yii2-google-chart": "dev-master",
+        "google/apiclient": "^2.0",
+        "skeeks/yii2-google-api": "*",
+        "philippfrenzel/yii2fullcalendar": "*",
+        "kartik-v/yii2-editable": "@dev",
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-mpdf": "dev-master",
+        "mdmsoft/yii2-autonumber": "~1.0",
+        "asinfotrack/yii2-audittrail": "^0.8.2",
+        "kartik-v/yii2-tabs-x": "*",
+        "jino5577/yii2-date-range-picker": "1.0.0",
+        "nterms/yii2-pagesize-widget": "*",
+        "yii2mod/yii2-tree": "*",
+        "codeception/verify": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "*",
+        "codeception/base": "^2.2.3",
+        "codeception/specify": "~0.4.3"
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        },
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
