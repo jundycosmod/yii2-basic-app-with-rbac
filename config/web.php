@@ -4,7 +4,7 @@ $params = require __DIR__ . '/params.php';
 
 $config = [
     'id' => 'basic',
-    'name' => 'Yii2 RBAC by jundycosmod',
+    'name' => 'Yii2 RBAC',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
@@ -33,95 +33,15 @@ $config = [
             ],
             //'admins' => ['admin', 'jcagentzero'],
         ],
-        'branch' => [
-            'class' => 'app\modules\branch\BranchModule',
-        ],
-        'location' => [
-            'class' => 'app\modules\location\LocationModule',
-        ],
-        'terminal' => [
-            'class' => 'app\modules\terminal\TerminalModule',
-        ],
-        'discount' => [
-            'class' => 'app\modules\discount\DiscountModule',
-        ],
-        'category' => [
-            'class' => 'app\modules\category\CategoryModule',
-        ],
-        'subcategory' => [
-            'class' => 'app\modules\subcategory\SubcategoryModule',
-        ],
-        'supplier' => [
-            'class' => 'app\modules\supplier\SupplierModule',
-        ],
-        'uom' => [
-            'class' => 'app\modules\uom\UomModule',
-        ],
-        'items' => [
-            'class' => 'app\modules\items\ItemsModule',
-        ],
-        'customertype' => [
-            'class' => 'app\modules\customertype\CustomertypeModule',
-        ],
-        'profession' => [
-            'class' => 'app\modules\profession\ProfessionModule',
-        ],
-        'customer' => [
-            'class' => 'app\modules\customer\CustomerModule',
-        ],
-        'customerdelivery' => [
-            'class' => 'app\modules\customerdelivery\CustomerdeliveryModule',
-        ],
+
         'profile' => [
             'class' => 'app\modules\profile\ProfileModule',
-        ],
-        'pos' => [
-            'class' => 'app\modules\pos\PosModule',
-        ],
-        'paymentmode' => [
-            'class' => 'app\modules\paymentmode\PaymentmodeModule',
-        ],
-        'dashboard' => [
-            'class' => 'app\modules\dashboard\DashboardModule',
-        ],
-        'expensestype' => [
-            'class' => 'app\modules\expensestype\ExpensestypeModule',
-        ],
-        'expenses' => [
-            'class' => 'app\modules\expenses\ExpensesModule',
-        ],
-        'deliveryschedule' => [
-            'class' => 'app\modules\deliveryschedule\DeliveryScheduleModule',
-        ],
-        'inventory' => [
-            'class' => 'app\modules\inventory\InventoryModule',
-        ],
-        'physicalcount' => [
-            'class' => 'app\modules\physicalcount\PhysicalcountModule',
-        ],
-        'receiving' => [
-            'class' => 'app\modules\receiving\ReceivingModule',
-        ],
-        'returns' => [
-            'class' => 'app\modules\returns\ReturnsModule',
-        ],
-        'adjustments' => [
-            'class' => 'app\modules\adjustments\AdjustmentsModule',
         ],
         'settings' => [
             'class' => 'app\modules\settings\SettingsModule',
         ],
         'rights' => [
             'class' => 'app\modules\rights\RightsModule',
-        ],
-        'delivery' => [
-            'class' => 'app\modules\delivery\DeliveryModule',
-        ],
-        'audittrail' => [
-            'class' => 'app\modules\audittrail\AuditTrailModule',
-        ],
-        'reports' => [
-            'class' => 'app\modules\reports\ReportsModule',
         ],
         'access' => [
             'class' => 'app\modules\access\AccessModule',
@@ -135,17 +55,7 @@ $config = [
                 ],
             ],
         ],
-        'googleApi' =>
-        [
-            'class' => '\skeeks\yii2\googleApi\GoogleApiComponent',
-            'developer_key' => '***REMOVED***',
-        ],
-        'formatter' => [
-            'dateFormat' => 'yyyy-MM-dd',
-            'decimalSeparator' => '.',
-            'thousandSeparator' => ',',
-            'currencyCode' => 'Php',
-        ],
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'skill',
@@ -155,19 +65,6 @@ $config = [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
-        ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'viewPath' => '@app/mailer',
-            'useFileTransport' => false,
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username' => 'jundycosmod@gmail.com',
-                'password' => 'mojoylmibmuuhbwb',
-                'port' => '587',
-                'encryption' => 'tls',
-            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
