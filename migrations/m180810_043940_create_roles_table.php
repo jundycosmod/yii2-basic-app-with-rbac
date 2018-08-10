@@ -16,7 +16,7 @@ class m180810_043940_create_roles_table extends Migration {
             'created_at' => $this->timestamp() . ' DEFAULT CURRENT_TIMESTAMP ',
             'updated_at' => $this->timestamp() . ' DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
 
-        ]);
+        ], 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB');
     }
 
     /**
