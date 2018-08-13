@@ -20,6 +20,7 @@ $ php yii migrate
 ```
 4. Go to http://localhost/<application name>/web
 5. Login using:
+  
 5.1. Username: *admin*
 5.2. Password: *123456*
 ##### Option 2 - Clone the repository
