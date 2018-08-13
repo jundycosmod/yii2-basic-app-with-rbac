@@ -186,9 +186,14 @@ if (in_array("create", Yii::$app->session['rights'])) {
 //        var tree = $("#tree").fancytree("getTree");
 //        var d = tree.toDict(true);
         var rawRights = [];
-        $('.fancytree-title').each(function (i, obj) {
-            rawRights[i] = $(this).html();
+        $("[role*='treeitem']").each(function (i, obj) {
+
+            if($(this).attr("aria-selected") === "true"){
+                rawRights[i] = $(this).find('.fancytree-title').html();
+            }
+
         });
+
         $.ajax({
             method: "POST",
             url: "<?php echo Yii::$app->urlManager->createUrl('access/default/create') ?>",

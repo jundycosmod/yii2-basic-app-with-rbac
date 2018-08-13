@@ -2,14 +2,12 @@
 
 namespace app\modules\access\controllers;
 
-use Yii;
 use app\modules\access\models\SystemMenu;
-use app\modules\access\models\SystemMenuSearch;
+use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\db\Query;
-use yii\filters\AccessControl;
 
 /**
  * DefaultController implements the CRUD actions for SystemMenu model.
@@ -41,7 +39,7 @@ class DefaultController extends Controller {
                 'class' => AccessControl::className(),
                 'only' => ['index', 'view', 'create', 'update', 'delete'],
                 'rules' => [
-                        [
+                    [
                         'allow' => $allow,
                         'actions' => $right_array,
                         'roles' => ['@'],
@@ -59,7 +57,7 @@ class DefaultController extends Controller {
         $model = new \app\modules\access\models\UserRights();
 
         return $this->render('index', [
-                    'model' => $model,
+            'model' => $model,
         ]);
     }
 
@@ -70,7 +68,7 @@ class DefaultController extends Controller {
      */
     public function actionView($id) {
         return $this->render('view', [
-                    'model' => $this->findModel($id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -82,33 +80,31 @@ class DefaultController extends Controller {
     public function actionCreate() {
         $model = new \app\modules\access\models\UserRights();
 
-        $rights = Yii::$app->request->post()['rights'];
-        
-        //$model::deleteAll('user_id = "'.Yii::$app->request->post()['user_id'].'" and menu_name');
-        
+        $rights = array_filter(Yii::$app->request->post()['rights']);
+
         if (Yii::$app->request->post()) {
+            $delete_user_rights = "DELETE FROM user_rights WHERE user_id = '" . Yii::$app->request->post()['user_id'] . "'";
+
+            Yii::$app->db->createCommand($delete_user_rights)->execute();
 
             foreach ($rights as $right) {
                 $newRights = $this->processRights($right);
-                $data .= $comma."('".
-                    Yii::$app->request->post()['user_id'] ."','".
-                    (($newRights[1] == "") ? 0 : $newRights[1]) ."','".
-                    (($newRights[0][0] == "") ? 0 : $newRights[0][0]) ."','".
-                    (($newRights[0][1] == "") ? 0 : $newRights[0][1]) ."','".
-                    (($newRights[0][2] == "") ? 0 : $newRights[0][2]) ."','".
-                    (($newRights[0][3] == "") ? 0 : $newRights[0][3]) ."','".
+                $data .= $comma . "('" .
+                Yii::$app->request->post()['user_id'] . "','" .
+                    (($newRights[1] == "") ? 0 : $newRights[1]) . "','" .
+                    (($newRights[0][0] == "") ? 0 : $newRights[0][0]) . "','" .
+                    (($newRights[0][1] == "") ? 0 : $newRights[0][1]) . "','" .
+                    (($newRights[0][2] == "") ? 0 : $newRights[0][2]) . "','" .
+                    (($newRights[0][3] == "") ? 0 : $newRights[0][3]) . "','" .
                     (($newRights[0][4] == "") ? 0 : $newRights[0][4])
-                ."')";
+                    . "')";
                 $comma = ",";
             }
-//            print_r(array_keys($model->attributes)); die();
-//            if (($key = array_search('id', $model->attributes)) !== false) {
-//                unset($model->attributes[$key]);
-//            }
-            $query = "REPLACE INTO ". $model->tableName() . 
-                    " (`".implode("`,`", array_diff(array_keys($model->attributes), ['id']))."`) ".
-                    " VALUES ". $data;
-            //die($query);
+
+            $query = "REPLACE INTO " . $model->tableName() .
+            " (`" . implode("`,`", array_diff(array_keys($model->attributes), ['id'])) . "`) " .
+                " VALUES " . $data;
+
             if (Yii::$app->db->createCommand($query)->execute()) {
                 echo "1";
             } else {
@@ -131,7 +127,7 @@ class DefaultController extends Controller {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                        'model' => $model,
+                'model' => $model,
             ]);
         }
     }
@@ -164,6 +160,7 @@ class DefaultController extends Controller {
     }
 
     private function processRights($rights) {
+
         $processedRights = str_replace("<!--", "", explode("-->", $rights));
         return explode("-", $processedRights[0]);
     }
