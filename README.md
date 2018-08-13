@@ -20,6 +20,9 @@ $ php yii migrate
 ```
 4. Go to http://localhost/<application name>/web
 5. Login using:
+1. Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list
+4. And another item.
 ..1. Username: *admin*
 ..2. Password: *123456*
 ##### Option 2 - Clone the repository
