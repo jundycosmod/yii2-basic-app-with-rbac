@@ -1,4 +1,4 @@
-# Yii2 Simple App RBAC
+# Yii2 Basic App RBAC
 
 This project gives developers a skeleton application for a Yii2 Simple application with user authentication and basic rbac. It also has the following as its default package.
 
