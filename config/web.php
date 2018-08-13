@@ -3,7 +3,7 @@
 $params = require __DIR__ . '/params.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'yii2-rbac',
     'name' => 'Yii2 RBAC',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],

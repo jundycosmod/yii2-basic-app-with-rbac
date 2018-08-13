@@ -20,21 +20,18 @@ use Yii;
  * @property Customer[] $customers
  * @property User $user
  */
-class Profile extends \yii\db\ActiveRecord
-{
+class Profile extends \yii\db\ActiveRecord {
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'profile';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['user_id'], 'required'],
             [['user_id'], 'integer'],
@@ -49,8 +46,7 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'user_id' => Yii::t('app', 'User ID'),
             'name' => Yii::t('app', 'Name'),
@@ -67,16 +63,14 @@ class Profile extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCustomers()
-    {
+    public function getCustomers() {
         return $this->hasMany(Customer::className(), ['user_id' => 'user_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
@@ -84,18 +78,17 @@ class Profile extends \yii\db\ActiveRecord
      * @inheritdoc
      * @return ProfileQuery the active query used by this AR class.
      */
-    public static function find()
-    {
+    public static function find() {
         return new ProfileQuery(get_called_class());
     }
-    
+
     public static function getOptions() {
         $data = static::find()->all();
         $value = (count($data) == 0) ? ['' => ''] : \yii\helpers\ArrayHelper::map($data, 'user_id', 'name'); //id = your ID model, name = your caption
 
         return $value;
     }
-    
+
     public function behaviors() {
         return [
             'audittrail' => [

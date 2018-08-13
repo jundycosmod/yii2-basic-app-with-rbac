@@ -29,7 +29,7 @@ class Menu extends Component {
             return $this->menus;
         }
 
-        $this->menus['items'] = $this->generateMenu('ximplepos');
+        $this->menus['items'] = $this->generateMenu(Yii::$app->id);
 //        echo "<pre>";
         //        print_r($this->menus); die();
         //
