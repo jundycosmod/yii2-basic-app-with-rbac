@@ -46,6 +46,9 @@ $config = [
         'access' => [
             'class' => 'app\modules\access\AccessModule',
         ],
+        'audittrail' => [
+            'class' => 'app\modules\audittrail\AuditTrailModule',
+        ],
     ],
     'components' => [
         'view' => [
