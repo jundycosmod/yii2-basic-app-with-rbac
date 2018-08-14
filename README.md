@@ -1,6 +1,6 @@
 # Yii2 Basic App RBAC
 
-This project gives developers a skeleton application for a Yii2 Simple application with user authentication and basic rbac. It also has the following as its default package.
+This project gives developers a skeleton application for a Yii2 basic application with user authentication and basic rbac. This will catapult developers' knowledge about Yii2 who have beginner to intermediate knowledge of the framework. It also has the following as its default package.
 
   - [Yii2 Basic Application](https://github.com/yiisoft/yii2) - Base application
   - [Yii2-user](https://github.com/dektrium/yii2-user) - Authentication and user maintenance
