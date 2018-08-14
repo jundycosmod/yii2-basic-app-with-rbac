@@ -1,7 +1,7 @@
 <?php
 
-$params = require(__DIR__ . '/params.php');
-$db = require(__DIR__ . '/db.php');
+$params = require __DIR__ . '/params.php';
+$db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic-console',
@@ -9,11 +9,6 @@ $config = [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'components' => [
-        'googleApi' =>
-        [
-            'class'                 => '\skeeks\yii2\googleApi\GoogleApiComponent',
-            'developer_key'         => '***REMOVED***',
-        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -29,12 +24,12 @@ $config = [
     ],
     'params' => $params,
     /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
-        ],
-    ],
-    */
+'controllerMap' => [
+'fixture' => [ // Fixture generation command line.
+'class' => 'yii\faker\FixtureController',
+],
+],
+ */
 ];
 
 if (YII_ENV_DEV) {
