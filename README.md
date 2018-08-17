@@ -33,7 +33,7 @@ $ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 $ php yii migrate --migrationPath=@vendor/asinfotrack/yii2-audittrail/migrations
 $ php yii migrate
 ```
-3. Follow steps 4-5 on Option 1.
+3. Follow steps 3-5 on Option 1.
 
 ### Todos
 
