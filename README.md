@@ -10,30 +10,28 @@ This project gives developers a skeleton application for a Yii2 basic applicatio
 ##### Option 1 - Download zip file
 1. Under the repository name, click Clone or download.
 2. Extract the master.zip on your web directory. You can rename the directory to your liking.
-3. Open terminal and run the following commands.
+3. Create your database.
+4. Open <application name>/config/db.php and change the settings accordingly.
+5. Open terminal and run the following commands.
 ```sh
-$ cd <application name>
-$ composer install
-$ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
-$ php yii migrate --migrationPath=@vendor/asinfotrack/yii2-audittrail/migrations
-$ php yii migrate
+cd <application name>
+composer install
+php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
+php yii migrate --migrationPath=@vendor/asinfotrack/yii2-audittrail/migrations
+php yii migrate
 ```
-4. Go to http://localhost/<application name>/web
-5. Login using:
+6. Go to http://localhost/<application name>/web
+7. Login using:
  * Username: *admin*
  * Password: *123456*
 ##### Option 2 - Clone the repository
 1. Under the repository name, copy the web URL.
 2. Open terminal and run the following commands.
 ```sh
-$ git clone https://github.com/jundycosmod/yii2-basic-app-with-rbac.git
-$ mv yii2-basic-app-with-rbac <application name>
-$ cd <application name>
-$ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
-$ php yii migrate --migrationPath=@vendor/asinfotrack/yii2-audittrail/migrations
-$ php yii migrate
+git clone https://github.com/jundycosmod/yii2-basic-app-with-rbac.git
+mv yii2-basic-app-with-rbac <application name>
 ```
-3. Follow steps 3-5 on Option 1.
+3. Follow steps 3-7 of Option 1.
 
 ### Todos
 
