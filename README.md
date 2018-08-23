@@ -20,7 +20,7 @@ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 php yii migrate --migrationPath=@vendor/asinfotrack/yii2-audittrail/migrations
 php yii migrate
 ```
-6. Go to http://localhost/application name/web
+6. Go to http://localhost/applicationname/web
 7. Login using:
  * Username: *admin*
  * Password: *123456*
