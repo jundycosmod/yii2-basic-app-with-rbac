@@ -21,7 +21,7 @@ php yii migrate --migrationPath=@vendor/asinfotrack/yii2-audittrail/migrations
 php yii migrate
 php yii serve [--port=<value>]
 ```
-6. Go to http://localhost:8080 or http://localhost:<value>
+6. Go to http://localhost:8080 or http://localhost:value
 7. Login using:
  * Username: *admin*
  * Password: *123456*
