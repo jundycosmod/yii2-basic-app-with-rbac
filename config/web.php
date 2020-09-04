@@ -7,6 +7,10 @@ $config = [
     'name' => 'Yii2 RBAC',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
     'modules' => [
         'gridview' => [
             'class' => '\kartik\grid\Module',
@@ -23,7 +27,7 @@ $config = [
             'enableUnconfirmedLogin' => false,
             'confirmWithin' => 21600,
             'cost' => 12,
-            'admins' => ['admin', 'fideljundyc'],
+            'admins' => ['admin', 'admin'],
             'controllerMap' => [
                 //'admin' => 'app\modules\user\controllers\DefaultController'
                 'security' => [
@@ -31,7 +35,6 @@ $config = [
                     'layout' => '@app/views/layouts/modal',
                 ],
             ],
-            //'admins' => ['admin', 'jcagentzero'],
         ],
 
         'profile' => [

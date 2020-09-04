@@ -12,7 +12,7 @@ class m180813_044511_insert_users extends Migration {
     public function safeUp() {
         $this->insert('user', [
             'username' => 'admin',
-            'email' => 'jundycosmod@gmail.com',
+            'email' => 'admin@gmail.com',
             'password_hash' => '$2y$12$OMxM9TapU2c7Er7BWe2V7.qMBB6HjEIdX5tntzg4Fpy/2zb1bjawC',
             'auth_key' => 'q3qQADSdSDX91397VV4gz4SeBDn7R257',
             'confirmed_at' => 1478672215,

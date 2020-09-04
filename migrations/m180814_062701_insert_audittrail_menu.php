@@ -11,14 +11,24 @@ class m180814_062701_insert_audittrail_menu extends Migration {
      */
     public function safeUp() {
         $this->insert('system_menu', [
-            'menu_name' => 'users',
-            'caption' => 'Users',
-            'link' => '/user/admin',
+            'menu_name' => 'audittrail',
+            'caption' => 'Audit Trail',
+            'link' => '/audittrail',
             'position' => 1,
             'enabled' => 1,
             'parent' => 'yii2-rbac',
             'requirement' => NULL,
-            'icon' => 'users',
+            'icon' => 'history',
+        ]);
+
+        $this->insert('user_rights', [
+            'user_id' => 1,
+            'menu_name' => 'audittrail',
+            'flag1' => 1,
+            'flag2' => 1,
+            'flag3' => 1,
+            'flag4' => 1,
+            'flag5' => 1,
         ]);
     }
 

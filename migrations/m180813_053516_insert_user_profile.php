@@ -13,8 +13,8 @@ class m180813_053516_insert_user_profile extends Migration {
 
         $this->insert('profile', [
             'user_id' => 1,
-            'name' => 'Jundy Cosmod',
-            'public_email' => 'jundycosmod@gmail.com',
+            'name' => 'Admin User',
+            'public_email' => 'admin@gmail.com',
         ]);
     }
 
